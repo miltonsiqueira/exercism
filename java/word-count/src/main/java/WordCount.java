@@ -8,6 +8,7 @@ public class WordCount {
 
         if(str != null && !str.isEmpty()) {
 
+          str = str.toLowerCase();
           String word = "";
           str = str.trim();
           int len = str.length();
@@ -26,19 +27,17 @@ public class WordCount {
 
               if(!isValidChar || isLastChar){
                   if(!word.isEmpty()){
-                      word = word.toLowerCase();
                       Integer total = result.get(word);
                       if(total == null){
                         total = 0;
                       }
-                      total++;
-                      result.put(word, total);
+                      result.put(word, ++total);
                       word = "";
                   }
               }
           }
         }
-        
+
         return result;
 
     }
